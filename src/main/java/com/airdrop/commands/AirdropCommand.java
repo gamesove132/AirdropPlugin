@@ -28,35 +28,36 @@ public class AirdropCommand implements CommandExecutor {
             return true;
         }
 
-        // Команда для перезавантаження конфігу
+        // Перезавантаження конфігурації[cite: 5, 6]
         if (args[0].equalsIgnoreCase("reload")) {
             if (!sender.hasPermission("airdrops.admin")) {
                 sender.sendMessage("§cУ вас немає дозволу!");
                 return true;
             }
-            plugin.reloadConfig(); // Перезавантажує config.yml[cite: 5, 6]
+            plugin.reloadConfig();
             sender.sendMessage("§aКонфігурацію успішно перезавантажено!");
             return true;
         }
 
-        // Команда для зупинки всіх активних айрдропів
+        // Зупинка всіх активних айрдропів[cite: 3, 4]
         if (args[0].equalsIgnoreCase("stop")) {
             if (!sender.hasPermission("airdrops.admin")) {
                 sender.sendMessage("§cУ вас немає дозволу!");
                 return true;
             }
             
-            Map<UUID, AirdropEvent> active = plugin.getAirdropManager().getActiveAirdrops(); // Отримуємо список активних[cite: 3, 4]
+            Map<UUID, AirdropEvent> active = plugin.getAirdropManager().getActiveAirdrops();
             if (active.isEmpty()) {
                 sender.sendMessage("§7Немає активних айрдропів.");
                 return true;
             }
             
-            active.values().forEach(AirdropEvent::cancel); // Скасовуємо подію[cite: 3, 9]
+            active.values().forEach(AirdropEvent::cancel);[cite: 3, 9]
             sender.sendMessage("§cУсі активні айрдропи зупинено!");
             return true;
         }
 
+        // Список активних айрдропів
         if (args[0].equalsIgnoreCase("list")) {
             Map<UUID, AirdropEvent> active = plugin.getAirdropManager().getActiveAirdrops();
             if (active.isEmpty()) {
@@ -72,6 +73,7 @@ public class AirdropCommand implements CommandExecutor {
             return true;
         }
 
+        // Запуск айрдропа вручну
         if (args.length >= 2 && args[1].equalsIgnoreCase("start")) {
             if (!sender.hasPermission("airdrops.start")) {
                 sender.sendMessage("§cУ вас немає дозволу!");
