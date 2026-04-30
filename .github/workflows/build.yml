@@ -24,5 +24,5 @@ jobs:
       - name: Upload JAR
         uses: actions/upload-artifact@v4
         with:
-          name: AirdropPlugin
-          path: AirdropPlugin/target/AirdropPlugin-1.0.0.jar
+          name: AirdropPlugin-Jar
+          path: target/*.jar
