@@ -1,0 +1,20 @@
+name: AirdropPlugin
+version: 1.0.0
+main: com.airdrop.AirdropPlugin
+api-version: 1.20
+author: YourName
+description: Airdrop system with rarities
+
+commands:
+  airdrops:
+    description: Airdrop system
+    usage: /airdrops [rarity] [start] [world]
+    permission: airdrops.use
+
+permissions:
+  airdrops.use:
+    description: Use /airdrops command
+    default: true
+  airdrops.start:
+    description: Start an airdrop
+    default: op

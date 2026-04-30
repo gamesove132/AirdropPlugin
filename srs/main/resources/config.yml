@@ -1,0 +1,106 @@
+# Час до відкриття айрдропу (в секундах)
+# 300 = 5 хв, 600 = 10 хв
+duration: 300
+
+# Максимальна відстань спавну від центру світу
+spawn-radius: 2000
+
+rarities:
+  EPIC:
+    items:
+      item1:
+        material: DIAMOND
+        amount: 5
+      item2:
+        material: DIAMOND_SWORD
+        amount: 1
+      item3:
+        material: GOLDEN_APPLE
+        amount: 8
+      item4:
+        material: IRON_INGOT
+        amount: 32
+      item5:
+        material: BOW
+        amount: 1
+      item6:
+        material: ARROW
+        amount: 64
+      item7:
+        material: COOKED_BEEF
+        amount: 16
+      item8:
+        material: OBSIDIAN
+        amount: 16
+      item9:
+        material: ENCHANTED_BOOK
+        amount: 1
+      item10:
+        material: EXPERIENCE_BOTTLE
+        amount: 16
+
+  MYTHIC:
+    items:
+      item1:
+        material: DIAMOND
+        amount: 16
+      item2:
+        material: DIAMOND_SWORD
+        amount: 1
+      item3:
+        material: DIAMOND_CHESTPLATE
+        amount: 1
+      item4:
+        material: NOTCH_APPLE
+        amount: 3
+      item5:
+        material: TOTEM_OF_UNDYING
+        amount: 1
+      item6:
+        material: ELYTRA
+        amount: 1
+      item7:
+        material: SHULKER_BOX
+        amount: 1
+      item8:
+        material: END_CRYSTAL
+        amount: 4
+      item9:
+        material: ENCHANTED_BOOK
+        amount: 3
+      item10:
+        material: NETHERITE_INGOT
+        amount: 2
+
+  LEGENDARY:
+    items:
+      item1:
+        material: NETHERITE_INGOT
+        amount: 8
+      item2:
+        material: NETHERITE_SWORD
+        amount: 1
+      item3:
+        material: NETHERITE_CHESTPLATE
+        amount: 1
+      item4:
+        material: NETHERITE_HELMET
+        amount: 1
+      item5:
+        material: NETHERITE_LEGGINGS
+        amount: 1
+      item6:
+        material: NETHERITE_BOOTS
+        amount: 1
+      item7:
+        material: NOTCH_APPLE
+        amount: 8
+      item8:
+        material: TOTEM_OF_UNDYING
+        amount: 3
+      item9:
+        material: ELYTRA
+        amount: 1
+      item10:
+        material: DRAGON_EGG
+        amount: 1
