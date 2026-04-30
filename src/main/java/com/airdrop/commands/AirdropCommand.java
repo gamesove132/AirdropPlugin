@@ -28,7 +28,7 @@ public class AirdropCommand implements CommandExecutor {
             return true;
         }
 
-        // Перезавантаження конфігурації[cite: 5, 6]
+        // Перезавантаження конфігу[cite: 5, 6]
         if (args[0].equalsIgnoreCase("reload")) {
             if (!sender.hasPermission("airdrops.admin")) {
                 sender.sendMessage("§cУ вас немає дозволу!");
@@ -39,7 +39,7 @@ public class AirdropCommand implements CommandExecutor {
             return true;
         }
 
-        // Зупинка всіх активних айрдропів[cite: 3, 4]
+        // Зупинка айрдропів[cite: 3, 4]
         if (args[0].equalsIgnoreCase("stop")) {
             if (!sender.hasPermission("airdrops.admin")) {
                 sender.sendMessage("§cУ вас немає дозволу!");
@@ -52,12 +52,12 @@ public class AirdropCommand implements CommandExecutor {
                 return true;
             }
             
-            active.values().forEach(AirdropEvent::cancel);[cite: 3, 9]
+            active.values().forEach(AirdropEvent::cancel); // Скасування подій[cite: 3, 9]
             sender.sendMessage("§cУсі активні айрдропи зупинено!");
             return true;
         }
 
-        // Список активних айрдропів
+        // Список активних айрдропів[cite: 4]
         if (args[0].equalsIgnoreCase("list")) {
             Map<UUID, AirdropEvent> active = plugin.getAirdropManager().getActiveAirdrops();
             if (active.isEmpty()) {
@@ -73,7 +73,7 @@ public class AirdropCommand implements CommandExecutor {
             return true;
         }
 
-        // Запуск айрдропа вручну
+        // Запуск айрдропа[cite: 4]
         if (args.length >= 2 && args[1].equalsIgnoreCase("start")) {
             if (!sender.hasPermission("airdrops.start")) {
                 sender.sendMessage("§cУ вас немає дозволу!");
