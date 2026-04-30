@@ -6,32 +6,35 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class AirdropPlugin extends JavaPlugin {
 
-    private static AirdropPlugin instance;
     private AirdropManager airdropManager;
 
     @Override
     public void onEnable() {
-        instance = this;
+        // Створюємо конфігурацію за замовчуванням
         saveDefaultConfig();
-        airdropManager = new AirdropManager(this);
 
+        // Ініціалізуємо менеджер[cite: 3, 5]
+        this.airdropManager = new AirdropManager(this);
+
+        // Реєструємо команду
         AirdropCommand cmd = new AirdropCommand(this);
-        getCommand("airdrops").setExecutor(cmd);
-        getCommand("airdrops").setTabCompleter(cmd);
+        
+        // Встановлюємо лише Executor (обробник команди)
+        if (getCommand("airdrops") != null) {
+            getCommand("airdrops").setExecutor(cmd);
+            // РЯДОК З setTabCompleter ВИДАЛЕНО, щоб не було помилки[cite: 5]
+        }
 
-        getLogger().info("AirdropPlugin enabled!");
+        getLogger().info("AirdropPlugin активовано успішно!");[cite: 5]
     }
 
     @Override
     public void onDisable() {
+        // Зупиняємо всі активні айрдропи перед вимкненням[cite: 3]
         if (airdropManager != null) {
-            airdropManager.cancelAll();
+            airdropManager.getActiveAirdrops().values().forEach(event -> event.cancel());[cite: 3, 9]
         }
-        getLogger().info("AirdropPlugin disabled!");
-    }
-
-    public static AirdropPlugin getInstance() {
-        return instance;
+        getLogger().info("AirdropPlugin вимкнено.");[cite: 5]
     }
 
     public AirdropManager getAirdropManager() {
