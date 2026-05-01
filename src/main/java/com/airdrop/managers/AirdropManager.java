@@ -176,6 +176,39 @@ public class AirdropManager {
         return activeAirdrops;
     }
 
+    /**
+     * Stop all active airdrops in a specific world.
+     * Returns how many were stopped.
+     */
+    public int stopAirdrops(World world) {
+        int count = 0;
+        Iterator<Map.Entry<UUID, AirdropEvent>> it = activeAirdrops.entrySet().iterator();
+        while (it.hasNext()) {
+            AirdropEvent event = it.next().getValue();
+            if (world == null || event.getWorld().equals(world)) {
+                event.cancel();
+                it.remove();
+
+                // Notify world players
+                World notifyWorld = event.getWorld();
+                String msg = event.getRarity().getColor() + "§l[Айрдроп] §cАйрдроп "
+                        + event.getRarity().getDisplayName() + " §cбуло зупинено адміністратором.";
+                for (Player p : notifyWorld.getPlayers()) {
+                    p.sendMessage(msg);
+                }
+                count++;
+            }
+        }
+        return count;
+    }
+
+    /**
+     * Reload config without restarting the plugin.
+     */
+    public void reload() {
+        plugin.reloadConfig();
+    }
+
     public void cancelAll() {
         activeAirdrops.values().forEach(AirdropEvent::cancel);
         activeAirdrops.clear();
