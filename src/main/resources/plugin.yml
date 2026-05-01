@@ -18,3 +18,9 @@ permissions:
   airdrops.start:
     description: Start an airdrop
     default: op
+  airdrops.stop:
+    description: Stop an airdrop
+    default: op
+  airdrops.reload:
+    description: Reload airdrop config
+    default: op
