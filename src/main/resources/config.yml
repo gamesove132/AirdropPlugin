@@ -1,8 +1,9 @@
-# Час до відкриття айрдропу (в секундах)
-# 300 = 5 хв, 600 = 10 хв
+# Час до відкриття (секунди). 300 = 5хв, 600 = 10хв
 duration: 300
 
-# Максимальна відстань спавну від центру світу
+# Максимальний радіус спавну від центру WorldBorder.
+# Якщо WorldBorder менший — використовується WorldBorder автоматично.
+# Наприклад якщо /worldborder set 2000, то радіус буде 950 (1000 - 50 буфер)
 spawn-radius: 2000
 
 rarities:
@@ -51,7 +52,7 @@ rarities:
         material: DIAMOND_CHESTPLATE
         amount: 1
       item4:
-        material: NOTCH_APPLE
+        material: ENCHANTED_GOLDEN_APPLE
         amount: 3
       item5:
         material: TOTEM_OF_UNDYING
@@ -93,7 +94,7 @@ rarities:
         material: NETHERITE_BOOTS
         amount: 1
       item7:
-        material: NOTCH_APPLE
+        material: ENCHANTED_GOLDEN_APPLE
         amount: 8
       item8:
         material: TOTEM_OF_UNDYING
